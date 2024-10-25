@@ -36,17 +36,4 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-func main() {
-    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        http.ServeFile(w, r, "index.html") // Assuming your HTML is saved as index.html
-    })
-
-    http.HandleFunc("/home", func(w http.ResponseWriter, r *http.Request) {
-        http.ServeFile(w, r, "index.html") // Serve the same HTML for the "/home" route
-    })
-
-    // Add handlers for other routes if needed
-    http.ListenAndServe(":8080", nil) // Ensure this matches your service target port
-}
 }
