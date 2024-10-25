@@ -24,22 +24,23 @@ func contactPage(w http.ResponseWriter, r *http.Request) {
 	// Render the contact html page
 	http.ServeFile(w, r, "static/contact.html")
 }
+
 func healthCheck(w http.ResponseWriter, r *http.Request) {
-    w.WriteHeader(http.StatusOK)
-    w.Write([]byte("Healthy"))
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("Healthy"))
 }
 
-http.HandleFunc("/health", healthCheck)
-log.Printf("Received request for %s", r.URL.Path)
-
-
 func main() {
-    http.HandleFunc("/", homePage) // Redirect root to home page
+	// Handle routes
+	http.HandleFunc("/", homePage) // Redirect root to home page
 	http.HandleFunc("/home", homePage)
 	http.HandleFunc("/courses", coursePage)
 	http.HandleFunc("/about", aboutPage)
 	http.HandleFunc("/contact", contactPage)
+	http.HandleFunc("/health", healthCheck)
 
+	// Start server and log the port being listened on
+	log.Println("Starting server on :8080")
 	err := http.ListenAndServe("0.0.0.0:8080", nil)
 	if err != nil {
 		log.Fatal(err)
