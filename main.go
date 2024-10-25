@@ -24,6 +24,14 @@ func contactPage(w http.ResponseWriter, r *http.Request) {
 	// Render the contact html page
 	http.ServeFile(w, r, "static/contact.html")
 }
+func healthCheck(w http.ResponseWriter, r *http.Request) {
+    w.WriteHeader(http.StatusOK)
+    w.Write([]byte("Healthy"))
+}
+
+http.HandleFunc("/health", healthCheck)
+log.Printf("Received request for %s", r.URL.Path)
+
 
 func main() {
     http.HandleFunc("/", homePage) // Redirect root to home page
