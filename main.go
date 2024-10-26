@@ -6,7 +6,6 @@ import (
 )
 
 func homePage(w http.ResponseWriter, r *http.Request) {
-	// Render the home html page from static folder
 	http.ServeFile(w, r, "static/home.html")
 }
 
@@ -31,8 +30,6 @@ func healthCheck(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	// Handle routes
-	http.HandleFunc("/", homePage) // Redirect root to home page
 	http.HandleFunc("/home", homePage)
 	http.HandleFunc("/courses", coursePage)
 	http.HandleFunc("/about", aboutPage)
