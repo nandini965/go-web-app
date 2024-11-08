@@ -1,11 +1,15 @@
+# Containerize the go application that we have created
+# This is the Dockerfile that we will use to build the image
+# and run the container
+
 # Start with a base image
-FROM golang:1.22.5 AS base
+FROM golang:1.22.5 as base
 
 # Set the working directory inside the container
 WORKDIR /app
 
 # Copy the go.mod and go.sum files to the working directory
-COPY go.mod .
+COPY go.mod ./
 
 # Download all the dependencies
 RUN go mod download
