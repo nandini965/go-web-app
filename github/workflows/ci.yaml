@@ -1,10 +1,9 @@
-name: CI
-
+   name: CI
 # Define the events that will trigger this workflow
-on:
-  push:
+   on:
+     push:
      branches:
-       - main
+     - main
      paths-ignore:
        - 'helm/**'
        - 'README.md'
