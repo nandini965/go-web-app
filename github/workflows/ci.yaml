@@ -3,14 +3,11 @@ name: CI
 # Define the events that will trigger this workflow
 on:
   push:
-    branches:
-      - main
-    paths-ignore:
-      - 'helm/**'
-      - 'README.md'
-  pull_request:
-    branches:
-      - main
+     branches:
+       - main
+     paths-ignore:
+       - 'helm/**'
+       - 'README.md'
 
 jobs:
   # Job 1: Build and Test
