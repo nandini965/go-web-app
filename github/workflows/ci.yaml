@@ -3,7 +3,7 @@
    on:
      push:
      branches:
-     - main.go
+     - main
      paths-ignore:
        - 'helm/**'
        - 'README.md'
